@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        /* vue代码执行完了之后，会将div里面的属性删除，这段代表，当有v-cloak属性的时候，不展示改代码块对应页面
+         * 于是下面的div带有c-cloakde时候，会不展示，当vue代码执行完了之后，就会把这个属性去掉，然后改代码块就会展示了，（下面的代码块加了个延时执行，setTimeout）
+         */
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="elData" v-cloak>
+        <!-- 双括号是mustach语法，其中也可以写一个表达式 -->
+        <h2>{{message}} , martea</h2>
+        <h2>{{firstName + ' ' + lastName}}</h2>
+        <h3>{{counter * 2}}</h3>
+
+        <!-- v-once 数据发生改变是，界面上的数据不会发生改变，上面的语法糖，页面上的数据是会根据变量改变发生改变的 
+        和v-for不一样，v-for后面要跟一个指令
+        -->
+        <h3 v-once>{{counter}}</h3>
+        <!-- v-html 将服务端返回的纯文本展示成html 这里要有指令-->
+        <h3 v-html="url">{{url}}</h3>
+
+        <!-- v-text 有点类似于mustach的语法 不过不够灵活，不能拼接并且不能使用表达式-->
+        <h3 v-text="text"></h3>
+
+        <!-- v-pre 原封不动的把标签中间的内容显示出来-->
+        <h3 v-pre>{{message}}</h3>
+
+        <!-- v-cloak斗篷 等js渲染完成才会显示，一般网络卡顿的情况下会比较有效-->
+        <h3 v-cloak>{{text}}</h3>
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        setTimeout(function () {
+            let app = new Vue({
+                el: '#elData', // 用于挂载要管理的元素
+                data: { // 定义数据
+                    message: '你好呀',
+                    firstName: '陈',
+                    lastName: '海涛',
+                    counter: 2,
+                    url: '<a href = "www.baidu.com">百度一下</a>',//这里返回的是标签，不是直接的链接
+                    text: '我是一个text'
+                },
+                methods: { // 定义方法
+                }
+            })
+        }, 200)
+    </script>
+</body>
+
+</html>

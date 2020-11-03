@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="elData">
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+            },
+            methods: { // 定义方法
+            }
+        })
+    </script>
+    <script>
+        // var是非块作用域的
+        {
+            var varX = 'hello world';
+            console.log(varX)
+        }
+        console.log(varX)
+        // 对象字面量的增强写法
+
+        const obj = new Object();
+
+        const name = 'martea';
+        const age = 18;
+        //es5是这样写的
+        const obj1 = {
+            name: 'martea',
+            age: 18,
+            run: function () {
+
+            }
+        };
+        // es5的写法
+        const obj2 = {
+            name: name, age: age
+        }
+        //es6的写法  效果同上
+        const obj3 = {
+            // 这里会把变量的名字作为变量名，变量值作为变量值 这个就叫对象的增强写法
+            name, age
+        }
+
+        // 函数的增强写法
+        const ooo = {
+            cook: function () {
+
+            },
+
+            run() {
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="elData">
+
+        <!-- <h2 :style="{key(css属性名):value(css属性值)}"> </h2> -->
+        <!-- 变量不用加单引号，常量要加上单引号 -->
+        <h2 :style="{fontSize:getFontSize()+'px', backgroundColor:getColor()}">{{message}}</h2>
+        <h2 :style="getStyle()">{{message}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+                message: '你好啊'
+            },
+            methods: { // 定义方法
+                getFontSize() {
+                    return 35;
+                },
+                getColor(){
+                    return 'green';
+                },
+                getStyle(){
+                    return {fontSize: this.getFontSize() + 'px',color: this.getColor()};
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

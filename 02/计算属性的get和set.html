@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="elData">
+        <h2>{{fullName}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+                firstName:'chen',
+                lastName:'haitao'
+            },
+            computed:{
+                fullName: {
+                    get(){
+                        return this.firstName+' '+this.lastName
+                    },
+                    // 在控制台中的使用方法就是  app.fullName = '陈 海涛'
+                    set(fullName){
+                        console.log('essssss');
+                        const name = fullName.split(' ');
+                        this.firstName = name[0];
+                        this.lastName = name[1]
+                    }
+                }
+            },
+            methods: { // 定义方法
+
+            }
+        })
+    </script>
+</body>
+
+</html>

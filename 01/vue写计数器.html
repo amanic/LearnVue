@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Title</title>
+</head>
+<body>
+
+<div id="elData">
+        <h2>当前计数：{{count}}</h2>
+        <button v-on:click="count++">+</button>
+        <button @click="count--">-</button>
+
+        <!-- 上面那种方法也可以，但是我们现在有一个需求，每次点击按钮要打印一句话，我们可以用函数的方式去实现。 -->
+
+        <button @click="inrc()">+</button>
+        <button @click="sub">-</button>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script >
+
+    //语法糖：其实就是简写  比如@click就是 v-on:click的简写（语法糖）
+
+
+	let app = new Vue({
+		el: '#elData', // 用于挂载要管理的元素
+        data: { // 定义数据
+            count : 0
+        },
+        methods:{ // 定义方法
+            inrc: function(){
+                console.log('啊这+++');
+                this.count++
+            },
+            sub: function(){
+                console.log('就这---');
+                this.count--
+            }
+        }
+    })
+    
+// 以前的写法是取出button元素，给button元素加上一个监听事件
+</script>
+
+</body>
+</html>

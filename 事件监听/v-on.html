@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="elData">
+        <h2>{{counter}}</h2>
+        <button @click="inrc">方法没有参数，调用方法的小括号可以省略掉</button>
+        <br>
+        <button @click="withParam()">方法有参数，调用没有省略小括号但是没有传参, 此时参数为undefined</button>
+        <br>
+        <button @click="withParam">方法有参数，调用省略了小括号，此时会默认传入当前浏览器捕捉到的事件给函数</button>
+        <br>
+        <button @click="paramWithEvent('123', $event)">方法参数同时需要自定义参数以及event参数,可以手动获取event $event</button>
+
+        <!-- v-on 还有修饰符 事件存在冒泡，阻止冒泡以前需要拿到event，现在可以用修饰符-->
+        <div @click="inrc">
+            <button @click.stop="inrc">按钮</button>
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+                message: '',
+                counter: 0
+            },
+            methods: { // 定义方法
+                inrc() {
+                    this.counter++
+                },
+                withParam(param) {
+                    console.log('---' , param);
+                },
+                paramWithEvent(param, event) {
+                    console.log(param, event)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

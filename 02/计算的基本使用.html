@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="elData">
+        <h2>{{fullName}}</h2>
+        <h2>书的总价格是：+ {{totalPrice}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+                firstName:'你好',
+                lastName:'世界',
+                books:[
+                    {id:1,name:'java',price:100},{id:2,name:'python',price:90},{id:3,name:'php',price:70}
+                ]
+            },
+            computed: { // 这里定义的函数.相当于一个属性，不会每次都回去执行
+                fullName(){
+                    return this.firstName + ' ' +this.lastName
+                },
+                totalPrice(){
+                    // map\reduce\filter
+
+                    // return this.books.reduce('price')
+                    let t = 0;
+                    for (let key in this.books) {
+                        t+=this.books[key].price;
+                    }
+                    return t;
+                }
+            },
+            methods: { // 定义方法
+            }
+        })
+    </script>
+</body>
+
+</html>

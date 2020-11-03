@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <style>
+        .activy {
+            color: greenyellow;
+        }
+
+        .another {
+            color: royalblue;
+        }
+
+        .astyle {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="elData">
+        <!-- v-bind 赋值标签的属性 -->
+        <a v-bind:href="url">跳转链接</a>
+        <br>
+        <img v-bind:src="imgUrl" alt="" width="180" length="180">
+        <br>
+        <!-- 语法糖为 : -->
+        <a :href="url">跳转链接</a>
+        <br>
+        <img :src="imgUrl" alt="" width="180" length="180">
+
+        <!-- 动态绑定class属性 -->
+        <h2 class="activy">{{imgUrl}}</h2>
+        <h2 :class="activy">{{imgUrl}}</h2>
+
+        <h2 :class="{astyle: isActivy, line: isLine}">你好呀，点击按钮我会变颜色哦，因为我的class是用的动态属性，class="{属性1:布尔值}1"，其中，布尔值1为true 或者
+            false，属性1就会展示或者不展示</h2>
+
+        <!-- 这里和上面的效果是一样的，知识这里将绑定的class，包装成了一个方法返回值 -->
+        <h2 :class="getClass()">你好呀，点击按钮我会变颜色哦，因为我的class是用的动态属性，class="{属性1:布尔值}1"，其中，布尔值1为true 或者
+            false，属性1就会展示或者不展示</h2>
+        <button v-on:click="onClick">按钮</button>
+
+        <!-- 上面是绑定对象，还可以绑定数组 -->
+        <h2 :class="[another, 'astyle']">数组语法绑定到class</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+                imgUrl: '/Users/martea/Pictures/love-p/57081324_p0.png',
+                url: 'file:///Users/martea/Desktop/learnVue/01/vue%E5%86%99%E8%A1%A8%E6%A0%BC.html',
+                activy: 'another',
+                isActivy: true,
+                isLine: true
+            },
+            methods: { // 定义方法
+                onClick() {
+                    this.isActivy = !this.isActivy;
+                    this.isLine = !this.Line;
+                },
+                getClass() {
+                    return {astyle: this.isActivy, line: this.isLine};
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
