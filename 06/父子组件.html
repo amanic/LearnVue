@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Title
+    </title>
+</head>
+<body>
+
+
+    <div id="elData">
+        <cpn2></cpn2>
+    </div>
+
+    <script src="../vue.js"></script>
+
+    <script>
+
+        const construct1 = Vue.extend({
+            template: `
+            <div>
+                <h2>我是标题1</h2>
+                <p>哈哈哈哈1</p>
+            </div>`
+        })
+
+        // 父组件
+        const construct2 = Vue.extend({
+            template: `
+            <div>
+                <h2>我是标题2</h2>
+                <p>哈哈哈哈2</p>
+                <cpn1></cpn1>
+            </div>`,
+            // 子组件，注册在父组件里面
+            components: {
+                cpn1: construct1
+            }
+        })
+
+        Vue.component('my-comp1',construct1)
+        Vue.component('my-comp2',construct2)
+
+        //  root组件
+        const app = new Vue({
+            el: '#elData',
+            data: {
+                msg: '这是消息'
+            },
+            method: {
+
+            },
+            components: {
+                // cpn1: construct1,
+                cpn2: construct2
+            }
+        })
+    </script>
+
+</body>
+
+</html>

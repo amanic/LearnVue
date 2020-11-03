@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Title
+    </title>
+</head>
+<body>
+    <cpn>
+        <h2>标题</h2>
+        <p>内容</p>
+    </cpn>
+    <div>
+        <cpn></cpn>
+        <cpn></cpn>
+        <cpn></cpn>
+        <h2>
+            {{msg}}
+        </h2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#elData',
+            data: {
+                msg: '这是消息'
+            },
+            method: {
+            }
+        })
+    </script>
+</body>
+
+</html>
