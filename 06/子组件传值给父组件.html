@@ -70,16 +70,16 @@
             el: '#elData',
             data: {
                 msg: '这是消息',
-                arrys: ['灾难始终慢我一步','浪潮逆转啦','胜利女生在微笑'],
+                arrys: ['灾难始终慢我一步','浪潮逆转啦','胜利女神在微笑'],
                 index: -1,
             },
             methods: {
                 cpnClick(item) {
-                    console.log('点击改变index事件', item);
+                    // console.log('点击改变index事件', item);
                     this.index = item
                 },
                 cpnGetClass(item) {
-                    console.log('点击后获取style事件', item);
+                    // console.log('点击后获取style事件', item);
                     return {color: this.index == item}
                 }
             },
@@ -95,4 +95,13 @@
 
 
 <!-- 其实父组件传值给子组件那个页面已经实现了这个页面的功能，只不过前者是通过调用子组件的函数，这里是实现了调用$emit函数将子组件的调用发射给了父组件，
-    所谓的一个事件传递，另外，这里还实现了子组件访问父组件的属性，通过this.$parent访问 -->
+    所谓的一个事件传递，另外，这里还实现了子组件访问父组件的属性，通过this.$parent访问 同样，父访问子也可以通过$children或者$ref来访问，children有点类似于
+list，ref有点类似于map，
+
+形如：<div id="app">
+        <cpn ref="first"/>
+        <cpn ref="sec/>
+    </div>
+    上面这样就是一父二子
+    父访问子可以 this.$children[0]、this.$children[1]或者this.$ref.first、this.$ref.sec
+-->
