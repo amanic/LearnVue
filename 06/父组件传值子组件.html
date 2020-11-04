@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Title
+    </title>
+    <style>
+        .color{
+            color:blue
+        }
+    </style>
+</head>
+<body>
+    <div id="elData">
+        <!-- 这里的标签属性是跟下面模板组件的props属性一致，不能使用驼峰 -->
+        <cpn v-bind:msgtag="msg" :arrystag="arrys"></cpn>
+    </div>
+    <script src="../js/vue.js"></script>
+    
+    <template id="cpn">
+        <div>
+            <ul>
+                <li v-for="(item,index) in arrystag" @click="onClick(index)" :class="getClass(index)">{{index}}-{{item}}</li>
+            </ul>
+            <h2>{{msgtag}}</h2>
+        </div>
+    </template>
+
+    <script>
+        const cpn = {
+            template: '#cpn',
+            // 里面的属性不能用驼峰
+            props: {
+
+                // 这个可以用作标签，里面固定有type default和required等属性
+                msgtag: {
+                    type: String,
+                    default: 'aaaaa',
+                    required: true
+                },
+                // 这个可以用作标签
+                arrystag: {
+                    type: Array,
+                    // 如果默认值是对象或者数组，要使用函数default
+                    default() {
+                        return []
+                    }
+                }
+            },
+            
+            data() {
+                return{
+                    index: -1,
+                }
+            },
+            methods: {
+                getClass(actualIndex) {
+                    return {color: this.index == actualIndex}
+                },
+                onClick(clickIndex) {
+                    this.index = clickIndex
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#elData',
+            data: {
+                msg: '这是消息',
+                arrys: ['灾难始终慢我一步','浪潮逆转啦','胜利女生在微笑']
+            },
+            method: {
+            },
+            // 这里是components不是templates
+            components: {
+                cpn
+            }
+        })
+    </script>
+</body>
+
+</html>
