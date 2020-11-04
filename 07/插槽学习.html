@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <div id="elData">
+        <spn><button>按钮</button></spn>
+        <spn></spn>
+        <spn><button>按钮</button></spn>
+        <spn></spn>
+        <spn><h3>哈哈哈</h3></spn>
+        <spn><i>嘿嘿嘿</i></spn>
+        <spn></spn>
+    </div>
+    <template id="spn">
+        <div>
+            <h2>我是插槽</h2>
+            <slot><a href="">我是默认值</a></slot>
+        </div>
+    </template>
+
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#elData', // 用于挂载要管理的元素
+            data: { // 定义数据
+            },
+            methods: { // 定义方法
+            },
+            components: {
+                spn: {
+                    template: '#spn'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
