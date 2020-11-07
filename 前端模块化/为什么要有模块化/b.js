@@ -1,4 +1,6 @@
-var name = '小红';
-var age = 24;
-
-var flag = false;
+;var moduleb = (function(){
+    var name = '小红';
+    var age = 24;
+    
+    var flag = false;
+})()

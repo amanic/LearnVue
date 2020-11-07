@@ -1,3 +1,5 @@
-if(flag){
-    console.log('---')
-}
+;(function(){
+    if(modulea.flag){
+        console.log('---')
+    }
+})()
