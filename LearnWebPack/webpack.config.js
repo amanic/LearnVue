@@ -35,6 +35,7 @@ module.exports = {
                   // 当加载的图片, 小于limit时, 会将图片编译成base64字符串形式.
                   // 当加载的图片, 大于limit时, 需要使用file-loader模块进行加载.
                   limit: 14000,
+                  //  图片在dist目录下面的路径自己命名
                   name: 'img/[name].[hash:8].[ext]'
                 },
               }
