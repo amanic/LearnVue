@@ -13,3 +13,7 @@ console.log(height);
 
 // 3.依赖css文件
 require('./css/normal.css')
+
+require('./css/special.less')
+
+document.writeln('<h2>你好啊，陈海涛。</h2>')
