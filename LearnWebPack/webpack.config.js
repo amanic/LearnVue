@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 const path = require('path')
 
 module.exports = {
@@ -42,5 +43,10 @@ module.exports = {
             ]
           },
         ]
+    },
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js'
       }
+    }
 }
