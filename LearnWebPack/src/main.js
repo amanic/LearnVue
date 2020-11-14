@@ -21,13 +21,14 @@ document.writeln('<h2>你好啊，陈海涛。</h2>')
 
 import Vue from 'vue'
 
-import app from './vue/app'
+// import app from './vue/app'
+import App from './vue/App.vue'
 
 new Vue({
     el: '#app',
-    template: '<app/>',
+    template: '<App/>',
     components: {
-        app
+        App
     }
   })
   
