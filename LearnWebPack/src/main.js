@@ -22,6 +22,9 @@ document.writeln('<h2>你好啊，陈海涛。</h2>')
 import Vue from 'vue'
 new Vue({
     el: '#app',
+    template: `
+    <div id = app>{{message}}</div>
+    `,
     data: {
         message: '我是message'
     }
