@@ -63,5 +63,9 @@ module.exports = {
         template: 'index.html'
       }),
       new uglifyjs()
-    ]
+    ],
+    devServer: {
+      inline: true,
+      contentBase: './dist'
+    }
 }
