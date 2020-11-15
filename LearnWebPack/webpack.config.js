@@ -2,6 +2,7 @@ const { resolve } = require('path')
 const path = require('path')
 const webpack = require('webpack')
 const htmlwebpackplugin = require('html-webpack-plugin')
+const uglifyjs = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -60,6 +61,7 @@ module.exports = {
       new webpack.BannerPlugin('最终版权归amanic所有'),
       new htmlwebpackplugin({
         template: 'index.html'
-      })
+      }),
+      new uglifyjs()
     ]
 }
