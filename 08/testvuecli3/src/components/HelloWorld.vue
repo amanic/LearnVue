@@ -36,6 +36,72 @@ export default {
     msg: String
   }
 }
+
+// 箭头函数
+// const power = (参数列表) => {
+//   函数内容
+// }
+// 一个参数可以省去括号
+
+// 返回值|
+// const mul = (num1, num2) =>{
+//   return num1+num2
+// }
+// 上面的写法相当于只有一行代码，可以写成下面的格式
+// constmul = (num1, num2) => num1 + num2
+// ______________
+// 什么时候使用箭头
+  // setTimeout(function () {
+  //   console.log(this);
+  // }, 1000)
+  //
+  // setTimeout(() => {
+  //   console.log(this);
+  // }, 1000)
+
+  // 问题: 箭头函数中的this是如何查找的了?
+  // 答案: 向外层作用域中, 一层层查找this, 直到有this的定义.
+  // const obj = {
+  //   aaa() {
+  //     setTimeout(function () {
+  //       console.log(this); // window
+  //     })
+  //
+  //     setTimeout(() => {
+  //       console.log(this); // obj对象
+  //     })
+  //   }
+  // }
+  //
+  // obj.aaa()
+
+
+  const obj = {
+    aaa() {
+      setTimeout(function () {
+        setTimeout(function () {
+          console.log(this); // window
+        })
+
+        setTimeout(() => {
+          console.log(this); // window
+        })
+      })
+
+      setTimeout(() => {
+        setTimeout(function () {
+          console.log(this); // window
+        })
+
+        setTimeout(() => {
+          console.log(this); // obj
+        })
+      })
+    }
+  }
+
+  obj.aaa()
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
