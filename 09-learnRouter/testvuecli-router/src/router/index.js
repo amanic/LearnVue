@@ -8,6 +8,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirct: '/home',
+    component: Home
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -23,7 +28,8 @@ const routes = [
 
 // 2.创建VueRouter对象
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 export default router

@@ -3,10 +3,21 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <button @click="aboutButton">通过代码的方式实现跳转</button>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  name: 'app',
+  methods: {
+    aboutButton(){
+      this.$router.push('/about')
+    }
+  }
+}
+</script>
 
 <style>
 #app {
