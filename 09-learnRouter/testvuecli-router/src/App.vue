@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <router-link :to="'/user/' + userId">用户</router-link>
       <button @click="aboutButton">通过代码的方式实现跳转</button>
     </div>
     <router-view/>
@@ -11,6 +12,11 @@
 <script>
 export default {
   name: 'app',
+  data() {
+    return {
+      userId: 'amanic'
+    }
+  },
   methods: {
     aboutButton(){
       this.$router.push('/about')
