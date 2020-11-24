@@ -20,10 +20,15 @@ require('./css/special.less')
 document.writeln('<h2>你好啊，陈海涛。</h2>')
 
 import Vue from 'vue'
+
+// import app from './vue/app'
+import App from './vue/App.vue'
+
 new Vue({
     el: '#app',
-    data: {
-        message: '我是message'
+    template: '<App/>',
+    components: {
+        App
     }
   })
   
