@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// 这里也是路由懒加载
+const Home = () => import('../views/Home.vue')
 import UserView from '../views/User.vue'
 
 // 1.通过Vue.use（插件），安装插件
@@ -27,6 +28,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    // 这种方法的路由加载是懒加载 
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
