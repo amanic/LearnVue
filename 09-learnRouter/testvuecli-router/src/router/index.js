@@ -29,7 +29,12 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     // 这种方法的路由加载是懒加载 
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    children: [
+      {path: '', redirect: 'news'},
+      {path: 'news', component: () => import('../views/AboutNews.vue')},
+      {path: 'msgs', component: () => import('../views/AboutMsg.vue')}
+    ]
   }
 ]
 
