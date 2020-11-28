@@ -18,6 +18,10 @@ const routes = [
     component: UserView
   },
   {
+    path: '/profile',
+    component: ()=>import('../views/Profile.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home

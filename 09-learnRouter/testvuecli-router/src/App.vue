@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <router-link :to="'/user/' + userId">用户</router-link>
+      <router-link :to="{path:'/profile',query:{age:18, name:'martea', sex:'male'}}">个人简历</router-link>
       <button @click="aboutButton">通过代码的方式实现跳转</button>
     </div>
     <router-view/>
